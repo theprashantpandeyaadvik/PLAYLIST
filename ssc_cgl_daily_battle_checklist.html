@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Daily Battle Checklist – PRASHANT PANDEY CGL 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0b0f1a;
+  --surface:   #111827;
+  --card:      #161d2e;
+  --border:    rgba(255,255,255,0.07);
+  --text:      #e8eaf0;
+  --muted:     #7b83a0;
+  --accent1:   #f97316;
+  --accent2:   #3b82f6;
+  --accent3:   #22d3ee;
+  --accent4:   #a78bfa;
+  --accent5:   #34d399;
+  --color-text-primary: #e8eaf0;
+  --color-text-secondary: #7b83a0;
+  --color-background-secondary: #161d2e;
+  --color-border-tertiary: rgba(255,255,255,0.07);
+  --color-border-secondary: rgba(255,255,255,0.12);
+  --color-background-info: rgba(59,130,246,0.15);
+  --color-text-info: #93c5fd;
+  --border-radius-lg: 16px;
+  --border-radius-md: 10px;
+  --font-sans: 'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── TOP NAV BAR ── */
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: color .2s, background .2s;
+}
+.back-btn:hover { color: var(--text); background: var(--card); }
+.nav-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ── WRAP ── */
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+
+/* ── HEADER ── */
+.header { margin-bottom: 1.5rem; }
+.exam-tag {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent1); margin-bottom: .4rem;
+}
+.exam-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px; font-weight: 800;
+  color: var(--color-text-primary); margin-bottom: .25rem;
+}
+.exam-sub { font-size: 13px; color: var(--color-text-secondary); }
+
+/* ── WAR BAR ── */
+.war-bar-wrap {
+  background: var(--card);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+.war-stats { display:flex; gap:24px; margin-bottom:.75rem; flex-wrap:wrap; }
+.war-stat { display:flex; flex-direction:column; gap:2px; }
+.war-stat-num { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:var(--color-text-primary); }
+.war-stat-label { font-size:12px; color:var(--color-text-secondary); }
+.progress-track { height:8px; background:var(--border); border-radius:4px; overflow:hidden; margin-top:.5rem; }
+.progress-fill { height:100%; border-radius:4px; background:var(--accent1); transition:width .4s ease; }
+
+/* ── DATE NAV ── */
+.date-nav {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  padding: .85rem 1.1rem;
+}
+.date-display { font-size:15px; font-weight:500; color:var(--color-text-primary); }
+.date-sub { font-size:12px; color:var(--color-text-secondary); margin-top:2px; }
+.nav-btn {
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-md);
+  padding: 7px 14px;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  display:flex; align-items:center; gap:4px;
+  transition: background .2s;
+}
+.nav-btn:hover { background: rgba(255,255,255,.1); }
+
+/* ── SCORE STRIP ── */
+.score-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:1.5rem; }
+.score-card {
+  background: var(--card);
+  border-radius: var(--border-radius-md);
+  padding: .85rem .75rem;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.score-sub { font-size:10px; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
+.score-num { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; color:var(--color-text-primary); }
+.score-total { font-size:11px; color:var(--color-text-secondary); }
+
+/* ── SUBJECT BLOCKS ── */
+.subject-block {
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background: var(--card);
+  transition: border-color .2s;
+}
+.subject-block:hover { border-color: rgba(255,255,255,0.13); }
+
+.subj-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .9rem 1.1rem;
+  cursor: pointer; user-select:none;
+}
+.subj-header:hover { background: rgba(255,255,255,.03); }
+.subj-left { display:flex; align-items:center; gap:10px; }
+.subj-icon { width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+.subj-name { font-size:14px; font-weight:600; color:var(--color-text-primary); }
+.subj-meta { font-size:11px; color:var(--color-text-secondary); margin-top:2px; }
+.subj-right { display:flex; align-items:center; gap:10px; }
+
+.pill { font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
+.pill-done    { background:rgba(52,211,153,.15); color:#34d399; }
+.pill-partial { background:rgba(249,115,22,.15);  color:#f97316; }
+.pill-none    { background:rgba(255,255,255,.05); color:var(--color-text-secondary); }
+
+.chevron { font-size:14px; color:var(--color-text-secondary); transition:transform .2s; }
+.chevron.open { transform:rotate(180deg); }
+
+/* ── TASK LIST ── */
+.task-list { border-top: 1px solid var(--border); }
+.task-row {
+  display:flex; align-items:flex-start; gap:12px;
+  padding: .85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background .15s;
+}
+.task-row:last-child { border-bottom: none; }
+.task-row:hover { background: rgba(255,255,255,.03); }
+.task-row.done { opacity: .55; }
+
+.cb {
+  width:20px; height:20px; border-radius:5px;
+  border: 1.5px solid rgba(255,255,255,.2);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; margin-top:2px;
+  transition: all .15s;
+}
+.cb.checked { background: var(--accent5); border-color: var(--accent5); }
+
+.task-content { flex:1; }
+.task-title { font-size:13px; font-weight:500; color:var(--color-text-primary); line-height:1.4; }
+.task-row.done .task-title { text-decoration:line-through; color:var(--color-text-secondary); }
+.task-detail { font-size:11px; color:var(--color-text-secondary); margin-top:2px; line-height:1.5; }
+.task-badge {
+  font-size:10px; font-weight:600;
+  padding:2px 8px; border-radius:10px;
+  background: rgba(59,130,246,.15);
+  color: #93c5fd;
+  flex-shrink:0; margin-top:2px;
+}
+
+.daily-bar { height:4px; background:var(--border); border-radius:2px; overflow:hidden; margin: .5rem 1.1rem .6rem; }
+.daily-fill { height:100%; border-radius:2px; background:var(--accent5); transition:width .3s; }
+
+/* ── BANNER ── */
+.complete-banner {
+  background: rgba(52,211,153,.1);
+  border: 1px solid rgba(52,211,153,.3);
+  border-radius: var(--border-radius-md);
+  padding: .85rem 1rem;
+  margin-top: 1rem;
+  display: none;
+  align-items: center; gap:10px;
+}
+.complete-banner.show { display:flex; }
+.banner-text { font-size:13px; font-weight:600; color: var(--accent5); }
+.banner-sub { font-size:11px; color:var(--muted); margin-top:1px; }
+
+@media (max-width:600px) {
+  .score-strip { grid-template-columns:repeat(2,1fr); }
+  .wrap { padding: 20px 16px 60px; }
+}
+</style>
+<nav class="top-nav">
+  <a class="back-btn" href="index.HTML">← Back to Hub</a>
+  <span class="nav-title">Daily Battle Checklist</span>
+</nav>
+<div class="wrap">
+  <h2 class="sr-only">SSC CGL 2026 Daily Task Checklist — 50-day study tracker</h2>
+  
+  <div class="header">
+    <div class="exam-tag">SSC CGL PRE 2026</div>
+    <div class="exam-title">Daily Battle Checklist</div>
+    <div class="exam-sub">18 August 2026 &nbsp;·&nbsp; 50 days &nbsp;·&nbsp; 11 June – 31 July</div>
+  </div>
+
+  <div class="war-bar-wrap">
+    <div class="war-stats">
+      <div class="war-stat"><span class="war-stat-num" id="days-gone">0</span><span class="war-stat-label">Days done</span></div>
+      <div class="war-stat"><span class="war-stat-num" id="days-left">50</span><span class="war-stat-label">Days left</span></div>
+      <div class="war-stat"><span class="war-stat-num" id="streak">0</span><span class="war-stat-label">Day streak 🔥</span></div>
+      <div class="war-stat"><span class="war-stat-num" id="total-done">0</span><span class="war-stat-label">Tasks today</span></div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="campaign-bar" style="width:0%"></div></div>
+  </div>
+
+  <div class="date-nav">
+    <button class="nav-btn" id="prev-btn"><i class="ti ti-chevron-left" aria-hidden="true"></i> Prev</button>
+    <div style="text-align:center">
+      <div class="date-display" id="date-display">—</div>
+      <div class="date-sub" id="day-display">—</div>
+    </div>
+    <button class="nav-btn" id="next-btn">Next <i class="ti ti-chevron-right" aria-hidden="true"></i></button>
+  </div>
+
+  <div class="score-strip">
+    <div class="score-card"><div class="score-sub">GS</div><div class="score-num"><span id="gs-done">0</span><span class="score-total">/4</span></div></div>
+    <div class="score-card"><div class="score-sub">English</div><div class="score-num"><span id="en-done">0</span><span class="score-total">/4</span></div></div>
+    <div class="score-card"><div class="score-sub">Reasoning</div><div class="score-num"><span id="re-done">0</span><span class="score-total">/2</span></div></div>
+    <div class="score-card"><div class="score-sub">Maths</div><div class="score-num"><span id="ma-done">0</span><span class="score-total">/3</span></div></div>
+  </div>
+
+  <div id="subjects"></div>
+
+  <div class="complete-banner" id="banner">
+    <i class="ti ti-trophy" style="font-size:22px;color:#3B6D11" aria-hidden="true"></i>
+    <div>
+      <div class="banner-text">Aaj ka mission complete! 💪</div>
+      <div class="banner-sub">Sabhi tasks ho gaye — kal bhi aise hi karein!</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const START = new Date('2026-06-11');
+const END   = new Date('2026-07-31');
+const EXAM  = new Date('2026-08-18');
+
+const SUBJECTS = [
+  {
+    id:'gs', label:'General Studies', meta:'21 questions · 42 marks',
+    color:'#FAECE7', iconBg:'#F0997B', icon:'ti-book', max:4,
+    tasks:[
+      {id:'gs1', title:'PYQ Series + Blitz Series', detail:'8 questions — solve PYQ set + blitz round', badge:'8 Qs'},
+      {id:'gs2', title:'2025 PYQ with Explanation', detail:'5 questions — read & understand each explanation', badge:'5 Qs'},
+      {id:'gs3', title:'2024 PYQ Q/A', detail:'4 questions — quick Q/A revision', badge:'4 Qs'},
+      {id:'gs4', title:'Current Affairs (Jan–Jul)', detail:'4 questions — daily CA from notes/newspaper', badge:'4 Qs'},
+    ]
+  },
+  {
+    id:'en', label:'English', meta:'25 questions · 50 marks',
+    color:'#E6F1FB', iconBg:'#85B7EB', icon:'ti-letter-a', max:4,
+    tasks:[
+      {id:'en1', title:'140 Sets Practice (2024+2025)', detail:'3500 total — 60+80 sets, target speed & accuracy', badge:'3 Qs'},
+      {id:'en2', title:'Pinnacle 7600+ PYQ', detail:'15 questions daily from Pinnacle PYQ bank', badge:'15 Qs'},
+      {id:'en3', title:'Vocab — Blackbook + Booster', detail:'2 questions — learn new words, booster test', badge:'2 Qs'},
+      {id:'en4', title:'The Hindu 60 Sets', detail:'5 questions — editorial reading & comprehension', badge:'5 Qs'},
+    ]
+  },
+  {
+    id:'re', label:'Reasoning', meta:'25 questions · 50 marks',
+    color:'#EEEDFE', iconBg:'#AFA9EC', icon:'ti-brain', max:2,
+    tasks:[
+      {id:'re1', title:'140 Sets (2024+2025) — Speed Drill', detail:'3500 total sets — build speed, aim for under 1 min/Qs'},
+      {id:'re2', title:'Pinnacle 7200+ PYQ', detail:'Daily practice from Pinnacle reasoning PYQ bank'},
+    ]
+  },
+  {
+    id:'ma', label:'Mathematics', meta:'23 questions · 46 marks',
+    color:'#E1F5EE', iconBg:'#5DCAA5', icon:'ti-math-function', max:3,
+    tasks:[
+      {id:'ma1', title:'Top 225 Questions (CGL+CHSL 2025)', detail:'Practice lecture questions — CGL, CHSL & others'},
+      {id:'ma2', title:'2018–2025 PYQ Book (6500+3000)', detail:'18 questions daily from the mega PYQ book', badge:'18 Qs'},
+      {id:'ma3', title:'Gagan Pratap 50 Sets', detail:'5 questions — solve from GP sets daily', badge:'5 Qs'},
+    ]
+  }
+];
+
+let currentDate = new Date();
+if(currentDate < START) currentDate = new Date(START);
+if(currentDate > END) currentDate = new Date(END);
+
+function dateKey(d){ return d.toISOString().slice(0,10) }
+function loadState(key){ try{ return JSON.parse(localStorage.getItem(key)||'{}') }catch(e){ return {} } }
+
+const openSubjects = {gs:true, en:true, re:false, ma:false};
+
+function dayNumber(d){
+  const diff = Math.floor((d - START)/(1000*60*60*24));
+  return diff+1;
+}
+
+function renderDate(){
+  const key = dateKey(currentDate);
+  const state = loadState('ssc_'+key);
+  const days = SUBJECTS.flatMap(s=>s.tasks).length;
+  const doneCount = Object.values(state).filter(Boolean).length;
+
+  const opts = {weekday:'long',day:'numeric',month:'long',year:'numeric'};
+  document.getElementById('date-display').textContent = currentDate.toLocaleDateString('en-IN',opts);
+  const dn = dayNumber(currentDate);
+  document.getElementById('day-display').textContent = 'Day '+dn+' of 50';
+
+  const gone = Math.max(0, Math.floor((new Date()-START)/(1000*60*60*24)));
+  const left = Math.max(0, Math.ceil((END-new Date())/(1000*60*60*24)));
+  document.getElementById('days-gone').textContent = Math.min(gone,50);
+  document.getElementById('days-left').textContent = left;
+  document.getElementById('total-done').textContent = doneCount+'/'+days;
+
+  let streak=0;
+  for(let i=0;i<50;i++){
+    const d=new Date(new Date()-i*86400000);
+    if(d<START||d>END) break;
+    const s=loadState('ssc_'+dateKey(d));
+    const total = SUBJECTS.flatMap(x=>x.tasks).length;
+    if(Object.values(s).filter(Boolean).length===total) streak++;
+    else break;
+  }
+  document.getElementById('streak').textContent = streak;
+
+  const pct = Math.round((Math.min(gone,50)/50)*100);
+  document.getElementById('campaign-bar').style.width = pct+'%';
+
+  SUBJECTS.forEach(s=>{
+    const c = s.tasks.filter(t=>state[t.id]).length;
+    document.getElementById(s.id+'-done').textContent = c;
+  });
+
+  renderSubjects(state);
+
+  const totalTasks = SUBJECTS.flatMap(s=>s.tasks).length;
+  const banner = document.getElementById('banner');
+  banner.classList.toggle('show', doneCount===totalTasks && totalTasks>0);
+}
+
+function renderSubjects(state){
+  const wrap = document.getElementById('subjects');
+  wrap.innerHTML='';
+  SUBJECTS.forEach(s=>{
+    const done = s.tasks.filter(t=>state[t.id]).length;
+    const pct = Math.round((done/s.tasks.length)*100);
+    const pillClass = done===s.tasks.length?'pill-done':done>0?'pill-partial':'pill-none';
+    const pillText = done===s.tasks.length?'Complete':done+'/'+s.tasks.length+' done';
+
+    const block = document.createElement('div');
+    block.className='subject-block';
+    block.style.marginBottom='1rem';
+
+    let tasksHtml = s.tasks.map(t=>{
+      const ck = state[t.id]?'checked':'';
+      const rowCls = state[t.id]?'done':'';
+      const badge = t.badge?`<span class="task-badge">${t.badge}</span>`:'';
+      return `<div class="task-row ${rowCls}" data-tid="${t.id}" data-sid="${s.id}">
+        <div class="cb ${ck}">${ck?'<i class="ti ti-check" style="font-size:12px;color:#fff" aria-hidden="true"></i>':''}</div>
+        <div class="task-content">
+          <div class="task-title">${t.title}</div>
+          <div class="task-detail">${t.detail||''}</div>
+        </div>
+        ${badge}
+      </div>`;
+    }).join('');
+
+    const open = openSubjects[s.id];
+
+    block.innerHTML=`
+      <div class="subj-header" data-sid="${s.id}">
+        <div class="subj-left">
+          <div class="subj-icon" style="background:${s.color}"><i class="ti ${s.icon}" style="font-size:16px;color:${s.iconBg}" aria-hidden="true"></i></div>
+          <div>
+            <div class="subj-name">${s.label}</div>
+            <div class="subj-meta">${s.meta}</div>
+          </div>
+        </div>
+        <div class="subj-right">
+          <span class="pill ${pillClass}">${pillText}</span>
+          <i class="ti ti-chevron-down chevron ${open?'open':''}" aria-hidden="true"></i>
+        </div>
+      </div>
+      ${open?`<div class="task-list">${tasksHtml}<div style="padding:.5rem 1.1rem .4rem"><div class="daily-bar"><div class="daily-fill" style="width:${pct}%"></div></div></div></div>`:''}
+    `;
+    wrap.appendChild(block);
+  });
+
+  wrap.querySelectorAll('.subj-header').forEach(h=>{
+    h.addEventListener('click',()=>{
+      const sid=h.dataset.sid;
+      openSubjects[sid]=!openSubjects[sid];
+      renderDate();
+    });
+  });
+
+  wrap.querySelectorAll('.task-row').forEach(row=>{
+    row.addEventListener('click',()=>{
+      const tid=row.dataset.tid;
+      const key='ssc_'+dateKey(currentDate);
+      const st=loadState(key);
+      st[tid]=!st[tid];
+      try{ localStorage.setItem(key,JSON.stringify(st)) }catch(e){}
+      renderDate();
+    });
+  });
+}
+
+document.getElementById('prev-btn').addEventListener('click',()=>{
+  const d=new Date(currentDate); d.setDate(d.getDate()-1);
+  if(d>=START){ currentDate=d; renderDate(); }
+});
+document.getElementById('next-btn').addEventListener('click',()=>{
+  const d=new Date(currentDate); d.setDate(d.getDate()+1);
+  if(d<=END){ currentDate=d; renderDate(); }
+});
+
+renderDate();
+</script>
