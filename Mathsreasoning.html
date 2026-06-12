@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Maths & Reasoning – Prashant Pandey CGL 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0b0f1a;
+    --surface:   #111827;
+    --card:      #161d2e;
+    --border:    rgba(255,255,255,0.07);
+    --text:      #e8eaf0;
+    --muted:     #7b83a0;
+    --accent1:   #f97316;
+    --accent2:   #3b82f6;
+    --accent3:   #22d3ee;
+    --accent4:   #a78bfa;
+    --accent5:   #34d399;
+    --accent6:   #f43f5e;
+    --display:   'Syne', sans-serif;
+    --body:      'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,15,26,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-back:hover { color: var(--text); }
+  .nav-back svg { width: 15px; height: 15px; }
+  .nav-sep { color: var(--border); font-size: 18px; }
+  .nav-title {
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent2);
+    letter-spacing: .04em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 420px;
+    background: radial-gradient(ellipse, rgba(59,130,246,.15) 0%, rgba(167,139,250,.08) 50%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* floating math symbols */
+  .hero-symbols {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-symbols span {
+    position: absolute;
+    font-size: 1.4rem;
+    opacity: 0.06;
+    font-family: var(--display);
+    font-weight: 800;
+    animation: floatSym 8s ease-in-out infinite;
+  }
+  .hero-symbols span:nth-child(1)  { top: 12%; left:  8%; animation-delay: 0s; }
+  .hero-symbols span:nth-child(2)  { top: 20%; left: 82%; animation-delay: 1.2s; }
+  .hero-symbols span:nth-child(3)  { top: 55%; left: 92%; animation-delay: 2.1s; }
+  .hero-symbols span:nth-child(4)  { top: 70%; left:  5%; animation-delay: 0.8s; }
+  .hero-symbols span:nth-child(5)  { top: 35%; left: 50%; animation-delay: 3s; }
+  .hero-symbols span:nth-child(6)  { top: 80%; left: 60%; animation-delay: 1.5s; }
+  .hero-symbols span:nth-child(7)  { top:  5%; left: 40%; animation-delay: 2.5s; }
+  .hero-symbols span:nth-child(8)  { top: 60%; left: 25%; animation-delay: 0.4s; }
+  @keyframes floatSym {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%       { transform: translateY(-14px) rotate(6deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-symbols span { animation: none; }
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(59,130,246,.12);
+    border: 1px solid rgba(59,130,246,.3);
+    color: var(--accent2);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .badge::before { content: '∑'; font-size: 12px; }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  h1 .line2 {
+    background: linear-gradient(90deg, var(--accent2), var(--accent4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin: 0 auto 0;
+  }
+
+  .divider {
+    width: 100%; height: 1px;
+    background: var(--border);
+  }
+
+  /* ── TOPICS STRIP ── */
+  .topics-strip {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 24px;
+  }
+  .topics-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .topics-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-right: 6px;
+  }
+  .topic-chip {
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 13px;
+    font-size: 12px;
+    color: var(--text);
+    transition: background .2s;
+    cursor: default;
+  }
+  .topic-chip:hover { background: rgba(255,255,255,.1); }
+
+  /* ── SECTION ── */
+  section.playlists {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 20px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    border-color: rgba(255,255,255,.13);
+  }
+
+  .card-top {
+    position: relative;
+    height: 148px;
+    display: flex;
+    align-items: flex-end;
+    padding: 18px;
+    overflow: hidden;
+  }
+  .card-top::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--c);
+  }
+  /* subtle gradient wash */
+  .card-top::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.35) 100%);
+    pointer-events: none;
+  }
+
+  .card-bg {
+    position: absolute; inset: 0;
+    opacity: .07;
+    font-size: 6rem;
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 16px;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+  }
+
+  /* card number badge */
+  .card-num {
+    position: absolute;
+    top: 14px; right: 16px;
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--c);
+    opacity: .7;
+    letter-spacing: .1em;
+    z-index: 1;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--c);
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-body {
+    padding: 20px 22px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-family: var(--display);
+    font-size: 1.07rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .card-meta span { display: flex; align-items: center; gap: 4px; }
+  .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 11px 0;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .03em;
+    text-decoration: none;
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--border);
+    color: var(--text);
+    transition: background .2s, border-color .2s, color .2s;
+    cursor: pointer;
+  }
+  .card:hover .btn {
+    background: var(--c);
+    border-color: transparent;
+    color: #fff;
+  }
+  .btn svg { width: 14px; height: 14px; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 36px 24px;
+    color: var(--muted);
+    font-size: 12.5px;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent2); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.HTML" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Study Hub
+  </a>
+  <span class="nav-sep">›</span>
+  <span class="nav-title">Maths &amp; Reasoning</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-symbols">
+    <span>∑</span><span>√</span><span>π</span><span>∫</span>
+    <span>%</span><span>≠</span><span>∞</span><span>÷</span>
+  </div>
+  <div class="badge">Maths &amp; Reasoning</div>
+  <h1>Full Revision<br><span class="line2">Playlists</span></h1>
+  <p class="hero-sub">Complete Maths &amp; Reasoning coverage for SSC CGL / CPO / CHSL 2026 — all topics in one place.</p>
+</header>
+
+<div class="divider"></div>
+
+<!-- TOPICS -->
+<div class="topics-strip">
+  <div class="topics-inner">
+    <span class="topics-label">Topics</span>
+    <span class="topic-chip">Algebra</span>
+    <span class="topic-chip">Geometry</span>
+    <span class="topic-chip">Trigonometry</span>
+    <span class="topic-chip">Number System</span>
+    <span class="topic-chip">Percentage</span>
+    <span class="topic-chip">Profit &amp; Loss</span>
+    <span class="topic-chip">Time &amp; Work</span>
+    <span class="topic-chip">Series</span>
+    <span class="topic-chip">Analogies</span>
+    <span class="topic-chip">Coding-Decoding</span>
+    <span class="topic-chip">Puzzles</span>
+    <span class="topic-chip">PYQs</span>
+  </div>
+</div>
+
+<!-- PLAYLISTS -->
+<section class="playlists">
+  <p class="section-eyebrow">All playlists</p>
+  <h2 class="section-title">Pick a topic &amp; start watching</h2>
+
+  <div class="grid">
+
+    <!-- 1 -->
+    <a class="card" href="https://youtube.com/playlist?list=PLAKmx66zoA3ilbsz8bg4grwFLnyZnFoEe"
+       target="_blank" rel="noopener" style="--c: var(--accent2);">
+      <div class="card-top">
+        <div class="card-bg">📐</div>
+        <span class="card-num">01</span>
+        <span class="tag">MATHS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Arithmetic Playlist 1</div>
+        <div class="card-desc">Maths full revision for SSC exams.</div>
+        <div class="card-meta">
+          <span>🎥</span><span class="dot"></span>
+          <span>SSC CGL / CPO / CHSL</span>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Open Playlist
+        </div>
+      </div>
+    </a>
+
+    <!-- 2 -->
+    <a class="card" href="https://youtube.com/playlist?list=PLAKmx66zoA3gqbFPKCwiJKNJc7zf2IOQp"
+       target="_blank" rel="noopener" style="--c: var(--accent4);">
+      <div class="card-top">
+        <div class="card-bg">🔢</div>
+        <span class="card-num">02</span>
+        <span class="tag">MATHS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Arithmetic Playlist 2</div>
+        <div class="card-desc">Maths full revision for SSC exams.</div>
+        <div class="card-meta">
+          <span>🎥</span><span class="dot"></span>
+          <span>SSC CGL / CPO / CHSL</span>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Open Playlist
+        </div>
+      </div>
+    </a>
+
+    <!-- 3 -->
+    <a class="card" href="https://youtube.com/playlist?list=PLAKmx66zoA3ilVa9ez-Z8l2oNAms0CDEb"
+       target="_blank" rel="noopener" style="--c: var(--accent3);">
+      <div class="card-top">
+        <div class="card-bg">📊</div>
+        <span class="card-num">03</span>
+        <span class="tag">MATHS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Arithmetic Playlist 3</div>
+        <div class="card-desc">Maths full revision for SSC exams.</div>
+        <div class="card-meta">
+          <span>🎥</span><span class="dot"></span>
+          <span>SSC CGL / CPO / CHSL</span>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Open Playlist
+        </div>
+      </div>
+    </a>
+
+    <!-- 4 -->
+    <a class="card" href="https://youtube.com/playlist?list=PLAKmx66zoA3gmspXn9eqoAqy0Y0pU-UfW"
+       target="_blank" rel="noopener" style="--c: var(--accent5);">
+      <div class="card-top">
+        <div class="card-bg">🧮</div>
+        <span class="card-num">04</span>
+        <span class="tag">MATHS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Advance Playlist 1</div>
+        <div class="card-desc">Maths full revision for SSC exams.</div>
+        <div class="card-meta">
+          <span>🎥</span><span class="dot"></span>
+          <span>SSC CGL / CPO / CHSL</span>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Open Playlist
+        </div>
+      </div>
+    </a>
+
+    <!-- 5 -->
+    <a class="card" href="https://youtube.com/playlist?list=PLAKmx66zoA3i1NNRNB1NmgqlUS16h9CMt"
+       target="_blank" rel="noopener" style="--c: var(--accent1);">
+      <div class="card-top">
+        <div class="card-bg">🧠</div>
+        <span class="card-num">05</span>
+        <span class="tag">MATHS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Advance Playlist 2</div>
+        <div class="card-desc">Maths full revision for SSC exams.</div>
+        <div class="card-meta">
+          <span>🎥</span><span class="dot"></span>
+          <span>SSC CGL / CPO / CHSL</span>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Open Playlist
+        </div>
+      </div>
+    </a>
+
+    <!-- 6 -->
+    <a class="card" href="https://youtube.com/playlist?list=PLAKmx66zoA3hP-FMecIb6R0ZEt_OWjFRF"
+       target="_blank" rel="noopener" style="--c: var(--accent6);">
+      <div class="card-top">
+        <div class="card-bg">🔍</div>
+        <span class="card-num">06</span>
+        <span class="tag">MATHS</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Advance Playlist 3</div>
+        <div class="card-desc">Maths full revision for SSC exams.</div>
+        <div class="card-meta">
+          <span>🎥</span><span class="dot"></span>
+          <span>SSC CGL / CPO / CHSL</span>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Open Playlist
+        </div>
+      </div>
+    </a>
+
+    <!-- 7 -->
+    <a class="card" href="https://youtube.com/playlist?list=PLAKmx66zoA3gfayHkrJd23gLQmlFGDbPW"
+       target="_blank" rel="noopener" style="--c: var(--accent4);">
+      <div class="card-top">
+        <div class="card-bg">⚡</div>
+        <span class="card-num">07</span>
+        <span class="tag">maths</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Advance Playlist 4</div>
+        <div class="card-desc">Maths for SSC exams.</div>
+        <div class="card-meta">
+          <span>🎥</span><span class="dot"></span>
+          <span>SSC CGL / CPO / CHSL</span>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Open Playlist
+        </div>
+      </div>
+    </a>
+
+    <!-- 8 -->
+    <a class="card" href="https://youtube.com/playlist?list=PLAKmx66zoA3i0eOwmtDMEsAc_HFpM92tj"
+       target="_blank" rel="noopener" style="--c: var(--accent3);">
+      <div class="card-top">
+        <div class="card-bg">🎯</div>
+        <span class="card-num">08</span>
+        <span class="tag">REASONING</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Reasoning Playlist </div>
+        <div class="card-desc">Reasoning Revision for SSC exams.</div>
+        <div class="card-meta">
+          <span>🎥</span><span class="dot"></span>
+          <span>SSC CGL / CPO / CHSL</span>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Open Playlist
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.HTML">← Back to Study Hub</a>
+</footer>
+
+</body>
+</html>
