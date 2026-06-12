@@ -301,7 +301,36 @@
     transition: background .2s;
   }
   .topic-chip:hover { background: rgba(255,255,255,.1); }
-
+/* ── HERO BUTTON ── */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: var(--accent1);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  border-radius: 12px;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 0 28px rgba(249,115,22,.35);
+}
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 44px rgba(249,115,22,.55);
+}
+.hero-btn-badge {
+  background: rgba(0,0,0,.2);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
   /* ── FOOTER ── */
   footer {
     text-align: center;
@@ -333,11 +362,14 @@
   <h1>PRASHANT PANDEY<br><span>Study Hub</span></h1>
   <p class="hero-sub">All your preparation playlists — GK, Math, English &amp; Blitz Series — in one place. Jump in and start learning.</p>
   <div class="stats-row">
-    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Playlists</div></div>
-    <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Video Lectures</div></div>
-    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Subjects</div></div>
-    <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Always</div></div>
-  </div>
+    <div style="margin-top: 36px;">
+  <a href="ssc_cgl_daily_battle_checklist.html" class="hero-btn">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    Open Daily Battle Checklist
+    <span class="hero-btn-badge">⚔️ 50 Days</span>
+  </a>
+</div>
+    
 </header>
 
 <div class="divider"></div>
@@ -508,7 +540,7 @@
         </div>
         <div class="btn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          Open PLAKmx66zoA3gKdhe02OR2PdJKr9tj8ips
+          Open MATHS PAGE
         </div>
       </div>
     </a>
